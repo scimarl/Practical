@@ -15,7 +15,7 @@ export const AppHeader = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            Shopping cart
+            Shopping Centre
           </Typography>
           <IconButton color="inherit">
             <AccountCircle />
