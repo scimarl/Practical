@@ -30,14 +30,41 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const Details = props => {
-    const productList = [{id:1, name:'Apple', region:'Australia', price:'10', rate:'4', onStock:1 },
-        {id:2, name:'Apple', region:'America', price:'10', rate:'3',  onStock:1},
-        {id:3, name:'Apple', region:'China', price:'15', rate:'5',  onStock:1 },
-        {id:3, name:'Pear', region:'Australia', price:'20', rate:'2',  onStock:1}
+    //fake datas
+    var productList = [{id:1, name:'Apple', region:'Australia', price:'10', rate:'4', onStock:1, requirement:0 },
+        {id:2, name:'Apple', region:'America', price:'10', rate:'3',  onStock:1, requirement:0},
+        {id:3, name:'Apple', region:'China', price:'15', rate:'5',  onStock:1, requirement:0 },
+        {id:4, name:'Pear', region:'Australia', price:'20', rate:'2',  onStock:1, requirement:0}
     ];
+
+    //make up styles
     const classes = useStyles();
 
-     return (
+    //store in somewhere, localhost for now
+    var list = [];
+    localStorage.setItem('item', list);
+
+    //add to cart
+    async function handleAdd(product) {
+      //add product to localhost
+
+     
+      if(list.includes(product)){
+        var foundIndex = list.findIndex(x => x.id === product.id);
+        product['requirement']++;
+        list[foundIndex] = product;
+      }else{
+        product['requirement']++;
+        list.push(product);
+      }
+    
+    localStorage.setItem('item', JSON.stringify(list));
+    }
+
+
+
+
+    return (
         <Grid container justify="center" className={classes.root}>
         <Grid item xs={12}>
             <Paper className={classes.paper}>
@@ -63,7 +90,7 @@ export const Details = props => {
                             <TableCell align="center">{'$'+product['price']}</TableCell>
                             <TableCell align="center">{product['rate'] + 'stars'}</TableCell>
                             <TableCell align="center">
-                            <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+                            <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} onClick={() => handleAdd(product)}>
                             Add to Cart
                             </Button>
                             </TableCell>

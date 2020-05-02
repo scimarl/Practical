@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {Details} from './Details';
-import Button from '@material-ui/core/Button';
 
 export const InitialPage = props => {
   return (

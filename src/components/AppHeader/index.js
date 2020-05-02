@@ -1,12 +1,15 @@
 import React from 'react';
 import { makeStyles, AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircleOutlined';
 import useTheme from '@material-ui/core/styles/useTheme';
+import ShowCart from './ShowCart';
 
 export const AppHeader = () => {
   const classes = useStyles();
   console.log(useTheme());
+
+ 
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed">
@@ -17,9 +20,9 @@ export const AppHeader = () => {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             Shopping Centre
           </Typography>
-          <IconButton color="inherit">
-            <AccountCircle />
-          </IconButton>
+         
+            <ShowCart/>
+           
         </Toolbar>
       </AppBar>
     </div>
