@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import {Details} from './Details';
-import Grid from './Grid';
+import Grids from './Grid';
 
 
 const useStyles = makeStyles(theme => ({
@@ -34,7 +34,7 @@ export const InitialPage = props => {
     <div><Details /></div>
     <div> 
       <Paper className={classes.paper}>
-      <Grid />
+      <Grids />
       </Paper>
     </div>
     </div>
